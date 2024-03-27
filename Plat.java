@@ -62,11 +62,12 @@ public class Plat {
         return price;
     }
 
+    @Override
     public String toString() {
         return "Plat{" +
                 "name='" + name + '\'' +
-                "availability='" + availability + '\'' +
-                "description='" + description + '\'' +
-                "price='" + price + '}';
+                ", availability='" + availability + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price + '}';
     }
 }
