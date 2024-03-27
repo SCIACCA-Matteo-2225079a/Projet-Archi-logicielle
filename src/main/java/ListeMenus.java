@@ -7,7 +7,6 @@ public class ListeMenus {
     private List<Menu> menus;
 
     public ListeMenus() {
-        // Initialiser la liste des menus ici si nécessaire
     }
 
     // Récupération liste des menus
