@@ -78,13 +78,11 @@ public class Utilisateur {
      *
      * @return une chaîne de caractères avec le mot de passe de l'utilisateur
      */
-    public String getPassword() {
-        return password;
-    }
+    public String getPassword() { return password; }
 
     /**
      *
-     * @return une chaîne de caractètes avec l'adresse de l'utilisateur
+     * @return une chaîne de caractères avec l'adresse de l'utilisateur
      */
     public String getAddress() { return address; }
 
