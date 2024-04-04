@@ -12,7 +12,7 @@ import jakarta.ws.rs.core.Application;
 public class PlatEtUtilisateurComponent extends Application {
 
     @Produces
-    private PlatRepositoryInterface openDbConnection(){
+    public PlatRepositoryInterface openDbConnectionForPlat(){
         PlatRepositoryAPI db = null;
         try{
             db = new PlatRepositoryAPI("jdbc:mariadb://mysql-maxime83.alwaysdata.net/maxime83_plats_et_utilisateurs_db", "maxime83_peu", "P14ts3tut111s4t3urs!");
@@ -23,12 +23,8 @@ public class PlatEtUtilisateurComponent extends Application {
         return db;
     }
 
-    private void closeDbConnection(@Disposes PlatRepositoryInterface platRepo ) {
-        platRepo.close();
-    }
-
     @Produces
-    private UtilisateurRepositoryInterface openDbConnection(){
+    public UtilisateurRepositoryInterface openDbConnectionForUtilisateur(){
         UtilisateurRepositoryAPI db = null;
         try{
             db = new UtilisateurRepositoryAPI("jdbc:mariadb://mysql-maxime83.alwaysdata.net/maxime83_plats_et_utilisateurs_db", "maxime83_peu", "P14ts3tut111s4t3urs!");
@@ -39,8 +35,12 @@ public class PlatEtUtilisateurComponent extends Application {
         return db;
     }
 
-    private void closeDbConnection(@Disposes UtilisateurRepositoryInterface platRepo ) {
+    public void closeDbConnectionForPlat(@Disposes PlatRepositoryInterface platRepo) {
         platRepo.close();
+    }
+
+    public void closeDbConnectionForUtilisateur(@Disposes UtilisateurRepositoryInterface utilisateurRepo) {
+        utilisateurRepo.close();
     }
 
 }
