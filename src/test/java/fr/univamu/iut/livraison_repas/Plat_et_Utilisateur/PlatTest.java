@@ -1,24 +1,46 @@
 package fr.univamu.iut.livraison_repas.Plat_et_Utilisateur;
 
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PlatTest {
 
+    private Plat plat;
+
+    @Before
+    public void createPlat() throws Exception {
+        plat = new Plat(1, "Test Plat", "disponible", "Description du plat", 10);
+    }
+
     @Test
-    public void testPlat() {
-        Plat plat = new Plat(0, "Tourte", "oui", "Description d'une tourte.", 10);
-        assertEquals(0, plat.getId());
-        assertEquals("Tourte", plat.getName());
-        assertEquals("oui", plat.getAvailability());
-        assertEquals("Description d'une tourte.", plat.getDescription());
+    public void testGetId() {
+        assertEquals(1, plat.getId());
+    }
+
+    @Test
+    public void testGetName() {
+        assertEquals("Test Plat", plat.getName());
+    }
+
+    @Test
+    public void testGetAvailability() {
+        assertEquals("disponible", plat.getAvailability());
+    }
+
+    @Test
+    public void testGetDescription() {
+        assertEquals("Description du plat", plat.getDescription());
+    }
+
+    @Test
+    public void testGetPrice() {
         assertEquals(10, plat.getPrice());
     }
 
     @Test
-    public void testPlatToString() {
-        Plat plat = new Plat(0, "Tourte", "disponible", "Description d'une tourte.", 10);
-        String expectedString = "Plat{id='0', name='Tourte', availability='oui', description='Description d'une tourte', price=10}";
+    public void testToString() {
+        String expectedString = "Plat{id='1', name='Test Plat', availability='disponible', description='Description du plat', price=10}";
         assertEquals(expectedString, plat.toString());
     }
 }
