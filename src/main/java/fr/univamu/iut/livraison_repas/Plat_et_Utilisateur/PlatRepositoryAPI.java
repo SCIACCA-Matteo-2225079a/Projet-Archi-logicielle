@@ -6,10 +6,18 @@ import java.util.ArrayList;
 
 public class PlatRepositoryAPI implements PlatRepositoryInterface, Closeable {
 
-    private Connection pEUDbCo;
+    protected Connection pEUDbCo;
 
-    public PlatRepositoryAPI() {
-        this.pEUDbCo = PlatEtUtilisateurConnection.getConnection();
+    /**
+     * Constructeur connexion base
+     * @param pEUDbURL url base plats et utilisateurs
+     * @param pEUDbUser nom utilisateur de la base
+     * @param pEUDbUserPwd mot de passe utilisateur de la base
+     */
+
+    public PlatRepositoryAPI(String pEUDbURL, String pEUDbUser, String pEUDbUserPwd) throws java.sql.SQLException, java.lang.ClassNotFoundException {
+        Class.forName("org.mariadb.jdbc.Driver");
+        pEUDbCo = DriverManager.getConnection( pEUDbURL, pEUDbUser, pEUDbUserPwd) ;
     }
 
     @Override
