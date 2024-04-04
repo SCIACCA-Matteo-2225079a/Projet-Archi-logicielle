@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public interface UtilisateurRepositoryInterface {
 
+    public void close();
+
     public boolean createUtilisateur(int id, String name, String status, String email, String password, String adress);
 
     public boolean updateUtilisateurName(int id, String name);
