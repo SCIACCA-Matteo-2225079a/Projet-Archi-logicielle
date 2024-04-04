@@ -1,28 +1,51 @@
 package fr.univamu.iut.livraison_repas.Plat_et_Utilisateur;
 
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UtilisateurTest {
 
-    @Test
-    public void testPlat() {
-        Utilisateur utilisateur = new Utilisateur(0, "MartinDupont", "normal",
-                "martin.dupont@example.com", "M4rt1nDup0nt!", "1 rue Sans Nom, 00000 Une Ville");
-        assertEquals(0, utilisateur.getId());
-        assertEquals("MartinDupont", utilisateur.getName());
-        assertEquals("normal", utilisateur.getStatus());
-        assertEquals("martin.dupont@example.com", utilisateur.getEmail());
-        assertEquals("M4rt1nDup0nt!", utilisateur.getPassword());
-        assertEquals("1 rue Sans Nom, 00000 Une Ville", utilisateur.getAddress());
+    private Utilisateur utilisateur;
+
+    @Before
+    public void createUtilisateur() throws Exception {
+        utilisateur = new Utilisateur(1, "Test Utilisateur", "normal", "test@example.com", "password123", "123 Rue de l'Utilisateur");
     }
 
     @Test
-    public void testPlatToString() {
-        Utilisateur utilisateur = new Utilisateur(0, "MartinDupont", "normal",
-                "martin.dupont@example.com", "M4rt1nDup0nt!", "1 rue Sans Nom, 00000 Une Ville");
-        String expectedString = "Utilisateur{id='0', name='MartinDupont', status='normal', email='martin.dupont@example.com', " +
-                "password='M4rt1nDup0nt!', address='1 rue Sans Nom, 00000 Une Ville'}";
+    public void testGetId() {
+        assertEquals(1, utilisateur.getId());
+    }
+
+    @Test
+    public void testGetName() {
+        assertEquals("Test Utilisateur", utilisateur.getName());
+    }
+
+    @Test
+    public void testGetStatus() {
+        assertEquals("normal", utilisateur.getStatus());
+    }
+
+    @Test
+    public void testGetEmail() {
+        assertEquals("test@example.com", utilisateur.getEmail());
+    }
+
+    @Test
+    public void testGetPassword() {
+        assertEquals("password123", utilisateur.getPassword());
+    }
+
+    @Test
+    public void testGetAddress() {
+        assertEquals("123 Rue de l'Utilisateur", utilisateur.getAddress());
+    }
+
+    @Test
+    public void testToString() {
+        String expectedString = "Utilisateur{id='1', name='Test Utilisateur', status='normal', email='test@example.com', password='password123', address=123 Rue de l'Utilisateur'}";
         assertEquals(expectedString, utilisateur.toString());
     }
 }
